@@ -43,7 +43,7 @@ public class LinkedQueue<E> {
     /**
      * 队列元素大小
      */
-    private int size;
+    private int size = 0;
 
     public LinkedQueue() {
         head = tail;

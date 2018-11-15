@@ -33,7 +33,7 @@ public class LinkedStack<E> {
     /**
      * 栈顶
      */
-    private Node top = new Node();
+    private Node top = null;
 
     /**
      * 栈元素大小
