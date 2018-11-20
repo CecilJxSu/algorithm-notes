@@ -12,6 +12,8 @@
 \xeCJKDeclareSubCJKBlock{MonoFont}{ "2500 -> "257F, "2002, "01 -> "F0 }
 % 中文默认没有斜体和粗体格式，开启伪斜体和指定黑体；MonoFont分区指定字体为等宽字体Menlo
 \setCJKmainfont[AutoFakeSlant, BoldFont=SimHei, MonoFont=Menlo]{SimSun}
+% 全局设置代码样式，空格替换成英文等宽的字符0x2002
+\setminted[java]{linenos, showspaces, space=\char"2002, fontsize=\small}
 
 \begin{document}
 \section{基础}
@@ -24,7 +26,7 @@
     \item 如果r不为0；则p = q；q = r；继续上一步骤（\textbf{与余数辗转相除}）
   \end{enumerate}
 
-  \inputminted[linenos]{java}{src/chapter01/GCD.java}
+  \inputminted{java}{src/chapter01/GCD.java}
 
   \subsection{抽象数据类型（ADT）}
   抽象数据类型（Abstract Data Type，ADT），对算法结构的抽象，简化描述抽象的算法。
@@ -37,7 +39,7 @@
     \item 直到中间元素与目标元素相等，返回mid；或者low > high，返回-1。
   \end{enumerate}
 
-  \inputminted[linenos]{java}{src/chapter01/BinarySearch.java}
+  \inputminted{java}{src/chapter01/BinarySearch.java}
 
   \subsection{算术表达式运算}
   目前支持+、-、*、/运算符，参考：\href{http://faculty.cs.niu.edu/~hutchins/csci241/eval.htm}{算法描述} 。
@@ -48,26 +50,26 @@
     \item 最后操作符栈不为空，继续循环计算。
   \end{enumerate}
 
-  \inputminted[linenos, fontsize=\small]{java}{src/chapter01/ArithmeticExpression.java}
+  \inputminted{java}{src/chapter01/ArithmeticExpression.java}
 
   \subsection{定容栈}
   固定大小的栈；如果需要扩容，提供resize方法，在push方法中检测是否需要扩容，然后调用resize方法；可以创建更大的数组，然后复制到新的数组中。
 
-  \inputminted[linenos]{java}{src/chapter01/FixedCapacityStack.java}
+  \inputminted{java}{src/chapter01/FixedCapacityStack.java}
 
   \subsection{栈的链表实现}
   链表实现的栈没有限制容量。
 
-  \inputminted[linenos]{java}{src/chapter01/LinkedStack.java}
+  \inputminted{java}{src/chapter01/LinkedStack.java}
 
   \subsection{队列的链表实现}
 
-  \inputminted[linenos]{java}{src/chapter01/LinkedQueue.java}
+  \inputminted{java}{src/chapter01/LinkedQueue.java}
 
   \subsection{背包}
   背包和栈类似，把push替换成add，然后移除pop；背包只添加元素，以及遍历元素。栈和队列也可以实现Iterator接口。
 
-  \inputminted[linenos]{java}{src/chapter01/Bag.java}
+  \inputminted{java}{src/chapter01/Bag.java}
 
   \subsection{算法分析}
   \subsubsection{增长数量级分类}
@@ -83,10 +85,10 @@
   \end{enumerate}
 
   \subsubsection{2-sum}
-  \inputminted[linenos]{java}{src/chapter01/TwoSum.java}
+  \inputminted{java}{src/chapter01/TwoSum.java}
 
   \subsubsection{3-sum}
-  \inputminted[linenos]{java}{src/chapter01/ThreeSum.java}
+  \inputminted{java}{src/chapter01/ThreeSum.java}
 
   \subsubsection{下界}
   在2-sum和3-sum例子中，是否能找到更优的算法，为算法在最坏的情况下的运行时间给出一个下界。

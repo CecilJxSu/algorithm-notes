@@ -14,12 +14,12 @@ public class ArithmeticExpression {
     /**
      * 栈顶部的操作符优先级 >= 当前扫描的操作符优先级？
      * ┌───┬────────────┐
-     * │   │ +  -  *  / │
+     * │   │ +  -  *  / │
      * ├───┼────────────┤
-     * │ + │ T  T  F  F │
-     * │ - │ T  T  F  F │
-     * │ * │ T  T  T  T │
-     * │ / │ T  T  T  T │
+     * │ + │ T  T  F  F │
+     * │ - │ T  T  F  F │
+     * │ * │ T  T  T  T │
+     * │ / │ T  T  T  T │
      * └───┴────────────┘
      */
     private static boolean[][] opCompare = {
@@ -31,8 +31,8 @@ public class ArithmeticExpression {
 
     /**
      * 计算表达式
-     * @param expression    算术表达式
-     * @return              结果
+     * @param expression    算术表达式
+     * @return              结果
      */
     public static double calcExpression(String expression) {
         if (expression == null || expression.isEmpty()) {
@@ -89,8 +89,8 @@ public class ArithmeticExpression {
 
     /**
      * 判断字符是否是数字
-     * @param c 字符
-     * @return  true - 数字；false - 非数字
+     * @param c 字符
+     * @return  true - 数字；false - 非数字
      */
     private static boolean isNum(char c) {
         return c >= '0' && c <= '9';
@@ -98,8 +98,8 @@ public class ArithmeticExpression {
 
     /**
      * 获取操作符优先级表opCompare的下标
-     * @param op    操作符
-     * @return      下标
+     * @param op    操作符
+     * @return      下标
      */
     private static int getOpIndex(char op) {
         switch (op) {
@@ -118,10 +118,10 @@ public class ArithmeticExpression {
 
     /**
      * 计算（operand2 op operand1）的值
-     * @param operand1  右操作数
-     * @param operand2  左操作数
-     * @param op        操作符
-     * @return          运算结果
+     * @param operand1  右操作数
+     * @param operand2  左操作数
+     * @param op        操作符
+     * @return          运算结果
      */
     private static double calc(double operand1, double operand2, char op) {
         switch (op) {
