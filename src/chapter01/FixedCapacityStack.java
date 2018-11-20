@@ -39,7 +39,7 @@ public class FixedCapacityStack<T> {
 
     /**
      * Fixed capacity
-     * @param maxSize   max capacity
+     * @param maxSize   max capacity
      */
     public FixedCapacityStack(int maxSize) {
         data = new Object[maxSize];
@@ -47,7 +47,7 @@ public class FixedCapacityStack<T> {
 
     /**
      * add element
-     * @param item  element
+     * @param item  element
      */
     public void push(T item) {
         if (size == data.length) {

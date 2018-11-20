@@ -11,11 +11,11 @@ public class BinarySearch {
 
     /**
      * 二分查询
-     * @param target    待查询目标元素
-     * @param sortedArr 升序数组
-     * @return          目标元素下标，-1为不存在
+     * @param target    待查询目标元素
+     * @param sortedArr 升序数组
+     * @return          目标元素下标，-1为不存在
      */
-    private static int binarySearch(int target, int[] sortedArr) {
+    public static int binarySearch(int target, int[] sortedArr) {
         int low = 0;
         int high = sortedArr.length - 1;
 

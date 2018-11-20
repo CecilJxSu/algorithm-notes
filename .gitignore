@@ -3,3 +3,15 @@
 **/.DS_Store
 out/
 *.iml
+
+#### Latex ####
+_minted-*
+*.out
+*.pdf
+*.pyg
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+*.xdv

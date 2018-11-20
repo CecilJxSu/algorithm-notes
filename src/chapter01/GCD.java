@@ -13,7 +13,7 @@ public class GCD {
      * @param q
      * @return  greatest common divisor
      */
-    private static int gcd(int p, int q) {
+    public static int gcd(int p, int q) {
         if (q == 0) {
             return p;
         }
