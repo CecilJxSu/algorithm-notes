@@ -8,8 +8,8 @@
 
 % 设置页大小和页边距，或者scale=0.8
 \geometry{a4paper,left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
-% 声明分区：等宽字体，制表符号，等宽空格，ASCII
-\xeCJKDeclareSubCJKBlock{MonoFont}{ "2500 -> "257F, "2002, "01 -> "F0 }
+% 声明分区，等宽字体：制表符号，等宽空格，ASCII，↺（循环箭头）
+\xeCJKDeclareSubCJKBlock{MonoFont}{ "2500 -> "257F, "2002, "01 -> "F0, "21BA }
 % 中文默认没有斜体和粗体格式，开启伪斜体和指定黑体；MonoFont分区指定字体为等宽字体Menlo
 \setCJKmainfont[AutoFakeSlant, BoldFont=SimHei, MonoFont=Menlo]{SimSun}
 % 全局设置代码样式，空格替换成英文等宽的字符0x2002
@@ -95,5 +95,28 @@
 
   \subsubsection{倍率实验}
   每次增加一倍输入规模，然后计算问题解决所需的时间，以此来预测任意问题的运行时间的增长数量级。
+
+  \subsection{union-find算法}
+  \subsubsection{动态连通性}
+  输入一系列无序对，一对无序对p和q的关系为对等关系，即相连：
+  \begin{enumerate}
+    \item 自反性：p和p是相连，q和q是相连；
+    \item 对称性：如果p和q相连，那么q和p相连；
+    \item 传递性：如果p和q相连，q和r相连，那么p和r相连；
+  \end{enumerate}
+  对等关系能够将对象分为多个等价类；对象p和q相连时，那么p和q为同一分类。
+
+  \subsubsection{Quick-Find实现}
+  find()常数级别；union()线性级别，如果N个连通分量全部合并，则为平方级别。
+  \inputminted{java}{src/chapter01/QuickFind.java}
+
+  \subsubsection{Quick-Union实现}
+  find()最坏情况下线性级别；union()最坏情况下线性级别，如果N个连通分量全部合并，则为平方级别；
+  Quick-Union实现方式不一定比Quick-Find方式快，这取决于输入样本，取决于树的高度。
+  \inputminted{java}{src/chapter01/QuickUnion.java}
+
+  \subsubsection{加权Quick-Union实现}
+  find()、union()、connected()最坏情况下也是对数级别。
+  \inputminted{java}{src/chapter01/WeightedQuickUnion.java}
 
 \end{document}
