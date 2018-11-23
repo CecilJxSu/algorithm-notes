@@ -119,4 +119,38 @@
   find()、union()、connected()最坏情况下也是对数级别。
   \inputminted{java}{src/chapter01/WeightedQuickUnion.java}
 
+  \section{排序}
+  \subsection{交换排序}
+    \subsubsection{冒泡排序}
+    思路：从底部开始，两两比较，最小的上浮冒泡
+    \\[10pt] 分析：稳定；平均时间$N^2$；最好时间$N$；最坏时间$N^2$
+    \inputminted{java}{src/chapter02/BubbleSort.java}
+
+    \subsubsection{快速排序}
+    思路：
+    \begin{enumerate}
+      \item 分区：基准值的插入位置；
+      \begin{enumerate}
+        \item 随机获取基准值；基准值与尾部元素交换；
+        \item 循环左右扫描，直到low与height相遇；
+        \item 左边向右边方向一直扫描，直到比pivot大，low插入到height位置；
+        \item 右边向左边方向一直扫描，直到比pivot小，height插入到low位置；
+        \item low = height，pivot插入到low与height重叠的位置；
+        \item 返回插入位置。
+      \end{enumerate}
+      \item 分治：基准值两边重复快速排序。
+    \end{enumerate}
+    分析：不稳定；平均时间$N \log N$；最好时间$N \log N$；最坏时间$N^2$
+
+    \inputminted{java}{src/chapter02/QuickSort.java}
+
+  \subsection{选择排序}
+    \subsubsection{直接选择排序}
+    \subsubsection{堆排序}
+  \subsection{插入排序}
+    \subsubsection{直接插入排序}
+    \subsubsection{希尔排序}
+  \subsection{合并排序}
+    \subsubsection{合并排序}
+
 \end{document}

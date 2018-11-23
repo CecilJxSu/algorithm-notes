@@ -44,7 +44,6 @@ public class WeightedQuickUnion {
     public int find(int p) {
         while (p != id[p]) {
             // 路径压缩
-            // 路径压缩
             // id[p] = id[id[p]];
             p = id[p];
         }
