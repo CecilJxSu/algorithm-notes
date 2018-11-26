@@ -146,7 +146,28 @@
 
   \subsection{选择排序}
     \subsubsection{直接选择排序}
+    思路：
+    \begin{enumerate}
+      \item 数组组成：已排序部分 + 待排序部分；
+      \item 每轮选取最小的值，移至待排序头部；
+      \item 完成该轮的排序，继续后面的待排序部分。
+    \end{enumerate}
+    分析：不稳定；平均时间$N^2$；最好时间$N^2$；最坏时间$N^2$
+
+    \inputminted{java}{src/chapter02/SelectionSort.java}
+
     \subsubsection{堆排序}
+    思路：
+    \begin{enumerate}
+      \item 将数组建立成大根堆；
+      \item 第一个肯定是最大的，将第一个与最后一个交换；
+      \item 继续将[0, n - 2]个元素建立成大根堆；
+      \item 继续第2步骤，直到元素从右往左，从大到小排序好。
+    \end{enumerate}
+    分析：不稳定；平均时间$N \log N$；最好时间$N \log N$；最坏时间$N \log N$
+
+    \inputminted{java}{src/chapter02/HeapSort.java}
+
   \subsection{插入排序}
     \subsubsection{直接插入排序}
     \subsubsection{希尔排序}
