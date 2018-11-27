@@ -189,7 +189,18 @@
 
     \inputminted{java}{src/chapter02/ShellSort.java}
 
-  \subsection{合并排序}
-    \subsubsection{合并排序}
+  \subsection{归并排序}
+    \subsubsection{归并排序}
+    思路：分治思想
+    \begin{enumerate}
+      \item 将数组分成2半；
+      \item 数组左边部分继续分治，归并排好序；
+      \item 数组右边部分继续分治，归并排好序；
+      \item 直到分成数组只有一个元素；
+      \item 然后将两个排好序的数组归并。
+    \end{enumerate}
+    分析：稳定；平均时间$N \log N$；最好时间$N \log N$；最坏时间$N \log N$
+
+    \inputminted{java}{src/chapter02/MergeSort.java}
 
 \end{document}
