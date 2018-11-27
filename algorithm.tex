@@ -8,8 +8,8 @@
 
 % 设置页大小和页边距，或者scale=0.8
 \geometry{a4paper,left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
-% 声明分区，等宽字体：制表符号，等宽空格，ASCII，↺（循环箭头）
-\xeCJKDeclareSubCJKBlock{MonoFont}{ "2500 -> "257F, "2002, "01 -> "F0, "21BA }
+% 声明分区，等宽字体：制表符号，等宽空格，ASCII，箭头字符
+\xeCJKDeclareSubCJKBlock{MonoFont}{ "2500 -> "257F, "2002, "01 -> "F0, "2190 -> "21FF }
 % 中文默认没有斜体和粗体格式，开启伪斜体和指定黑体；MonoFont分区指定字体为等宽字体Menlo
 \setCJKmainfont[AutoFakeSlant, BoldFont=SimHei, MonoFont=Menlo]{SimSun}
 % 全局设置代码样式，空格替换成英文等宽的字符0x2002
@@ -170,7 +170,25 @@
 
   \subsection{插入排序}
     \subsubsection{直接插入排序}
+    思路：类似打牌时采用的排序方式
+    \begin{enumerate}
+      \item 分有序区和无序区；
+      \item 将无序区中的第一个元素插入到有序区的适合位置中。（在有序区中: 从右往左扫描）
+    \end{enumerate}
+    分析：稳定；平均时间$N^2$；最好时间$N$；最坏时间$N^2$
+
+    \inputminted{java}{src/chapter02/HeapSort.java}
+
     \subsubsection{希尔排序}
+    思路：按一定增量的直接插入算法
+    \begin{enumerate}
+      \item 步长每次减半，直到步长为1，变成普通插入排序；
+      \item 从gap开始，从左往右，从上到下，直到数组尾部，直接插入排序
+    \end{enumerate}
+    分析：不稳定；平均时间，取决于gap的选取；最好时间$N \log N$；最坏时间$N^2$（选取最坏的gap）、$N {\log}^2 N$（选取最优的gap）
+
+    \inputminted{java}{src/chapter02/ShellSort.java}
+
   \subsection{合并排序}
     \subsubsection{合并排序}
 
