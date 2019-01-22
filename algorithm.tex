@@ -203,4 +203,26 @@
 
     \inputminted{java}{src/chapter02/MergeSort.java}
 
+  \section{查找}
+    \subsection{顺序查找}
+      条件：无序或有序；
+      \\[10pt] 思路：遍历元素，待查找目标元素与数组中每个元素比较，该算法简单，不提供代码。
+      \\[10pt] 分析：平均和最坏时间复杂都是$N$
+    \subsection{二分查找}
+      条件：有序；
+      \\[10pt] 思路：依次与区间中间的值比较，如果相等，则返回位置，否则区间减半，继续比较直到找到或条件区间不合理返回-1。
+      \begin{enumerate}
+        \item 条件：合理区间：$low <= height$；
+        \item 比较：$data[mid] ==  target, \; return \; mid$；
+        \item 比较：$data[mid] < target, \; low = mid + 1$；
+        \item 比较：$data[mid] > target, \; height = mid - 1$；
+        \item 结束循环：返回-1。
+      \end{enumerate}
+      分析：最坏和平均都是$\log N$
+      \inputminted{java}{src/chapter03/BinarySearch.java}
+    \subsection{插值查找}
+    \subsection{树表查找}
+    \subsection{分块查找}
+    \subsection{哈希查找}
+
 \end{document}
