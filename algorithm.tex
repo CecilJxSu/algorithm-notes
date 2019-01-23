@@ -5,6 +5,7 @@
 \usepackage{minted}
 \usepackage[colorlinks,linkcolor=blue]{hyperref}
 \usepackage{amsmath}
+\usepackage{tikz}
 
 % 设置页大小和页边距，或者scale=0.8
 \geometry{a4paper,left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
@@ -221,6 +222,34 @@
       分析：最坏和平均都是$\log N$
       \inputminted{java}{src/chapter03/BinarySearch.java}
     \subsection{插值查找}
+      条件：有序；
+      \\[10pt] 思路：类似二分查找，但插值查找的中间点通过预测来减少查找次数，如果数组元素具有线性排序，则可以通过线性插值来预测mid，如下图：
+
+      \begin{figure}
+        \centering
+          \input{figure/interpolation.tex}
+          \caption{interpolation}
+          \label{interpolation}
+      \end{figure}
+
+      \begin{enumerate}
+        \item 两点式：$\frac{y - y2}{y1 - y2} = \frac{x - x2}{x1 - x2}$；
+        \item 代入low和height两点坐标，以及target，求得：\newline $mid = low + \frac{(target - data[low]) * (height - low)}{data[height] - data[low]}$；
+        \item 条件：
+          \begin{enumerate}
+            \item $data[height] - data[low] \neq 0 \Rightarrow data[height] \neq data[low]$
+            \item target在[data[low], data[height]]区间：\newline $data[low] <= target \; \&\& \; target <= data[height]$
+          \end{enumerate}
+        \item 比较：$data[mid] ==  target, \; return \; mid$；
+        \item 比较：$data[mid] < target, \; low = mid + 1$；
+        \item 比较：$data[mid] > target, \; height = mid - 1$；
+        \item 结束循环：返回-1。
+      \end{enumerate}
+
+      分析：如果元素分布均匀，呈线性分布，平均是$\log{(\log N)}$；最坏是当元素呈指数递增$O(N)$
+
+      \inputminted{java}{src/chapter03/LinearInterpolationSearch.java}
+    \subsection{Fibonacci查找}
     \subsection{树表查找}
     \subsection{分块查找}
     \subsection{哈希查找}
